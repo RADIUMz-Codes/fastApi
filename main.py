@@ -25,11 +25,7 @@ async def upload_file(file: UploadFile = File(...)):
     with open(f"./uploads/cv/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     return {"filename": file.filename}
-@app.post("/upload/")
-async def upload_file(file: UploadFile = File(...)):
-    with open(f"./uploads/cv/{file.filename}", "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-    return {"filename": file.filename}
+
 
 @app.post("/uploadjd/")
 async def upload_file(file: UploadFile = File(...)):
